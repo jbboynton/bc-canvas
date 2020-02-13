@@ -11,7 +11,7 @@ class Services {
 
     $query = new \WP_Query([
       'nopaging' => true,
-      'post_type' => ServicePostType::ID,
+      'post_type' => CanvasPostType::ID,
       'fields' => 'ids',
     ]);
 
@@ -71,11 +71,11 @@ class Services {
   }
 
   public function create_post_type() {
-    new ServicePostType();
+    new CanvasPostType();
   }
 
   public function create_taxonomy() {
-    new RelatedServiceTaxonomy();
+    new RelatedCanvasTaxonomy();
   }
 
   public function create_bulk_action() {
@@ -83,9 +83,9 @@ class Services {
   }
 
   public function create_options_page() {
-    $page_title = ServicePostType::PLURAL_NAME . ' Page';
-    $menu_title = ServicePostType::PLURAL_NAME . ' Page';
-    $parent_slug = 'edit.php?post_type=' . ServicePostType::ID;
+    $page_title = CanvasPostType::PLURAL_NAME . ' Page';
+    $menu_title = CanvasPostType::PLURAL_NAME . ' Page';
+    $parent_slug = 'edit.php?post_type=' . CanvasPostType::ID;
 
     if (function_exists('acf_add_options_sub_page')) {
       acf_add_options_sub_page([
@@ -182,7 +182,7 @@ class Services {
   }
 
   private function will_set_on_save($id) {
-    return (get_post_type($id) == ServicePostType::ID ? true : false);
+    return (get_post_type($id) == CanvasPostType::ID ? true : false);
   }
 
   private function set_post_data($service) {

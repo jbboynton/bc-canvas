@@ -127,7 +127,7 @@ class BulkAction {
   public function populate_column($column) {
     global $post;
 
-    $terms = wp_get_object_terms($post->ID, CanvasServices::TAXONOMY_ID) ?? [];
+    $terms = wp_get_object_terms($post->ID, Services::TAXONOMY_ID) ?? [];
     $term_names = [];
 
     array_map(function ($term) use (&$term_names) {
@@ -149,7 +149,7 @@ class BulkAction {
       $name = $this->action_name_for($service);
 
       $action_ids[$id] = $name;
-    }, CanvasServices::all());
+    }, Services::all());
 
     sort($action_ids);
 

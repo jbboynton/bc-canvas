@@ -6,7 +6,7 @@ use PostTypes\PostType;
 
 class CanvasPostType {
   public const ID = 'canvas_service';
-  public const PLURAL_NAME = 'Canvas Services';
+  public const PLURAL_NAME = 'Canvas';
   public const SINGULAR_NAME = 'Canvas Service';
   public const SLUG = 'canvas';
 
@@ -50,9 +50,14 @@ class CanvasPostType {
 
   private function set_labels() {
     $this->cpt->labels([
-      'search_items' => self::PLURAL_NAME,
+      'all_items' => 'View All',
       'archives' => self::PLURAL_NAME,
       'menu_name' => self::PLURAL_NAME,
+      'not_found' => 'No canvas services found',
+      'not_found_in_trash' => 'No canvas services found in Trash',
+      'search_items' => 'Search Canvas Services',
+      'search_items' => self::PLURAL_NAME,
+      'view_items' => 'View Canvas Services',
     ]);
   }
 }
