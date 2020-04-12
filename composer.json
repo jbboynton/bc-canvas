@@ -1,6 +1,6 @@
 {
   "name": "jbboynton/bc-canvas",
-  "version": "0.1",
+  "version": "0.1.1",
   "type": "wordpress-muplugin",
   "description": "WordPress CPT for BC Custom Canvas' canvas services.",
   "homepage": "https://github.com/jbboynton/bc-canvas",
@@ -14,16 +14,9 @@
   "support": {
     "issues": "https://github.com/jbboynton/bc-canvas/issues"
   },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/jbboynton/bc-upholstery"
-    }
-  ],
   "require": {
     "php": "^7.4",
     "composer/installers": "^1.8.0",
-    "jbboynton/bc-upholstery": "dev-master",
     "jjgrainger/posttypes": "^2.0"
   },
   "autoload": {

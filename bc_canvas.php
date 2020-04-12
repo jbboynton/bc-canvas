@@ -3,7 +3,7 @@
 /**
  * Plugin Name: BC Canvas
  * Description: WordPress CPT for BC Custom Canvas' canvas service.
- * Version: 0.1
+ * Version: 0.1.1
  * Author: James Boynton
  */
 
