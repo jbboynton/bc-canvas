@@ -50,7 +50,7 @@ class Service {
     return $query->posts ?? [];
   }
 
-  private static function find_published($post_type, $post_ids) {
+  public static function find_published($post_type, $post_ids) {
     $ids = [];
 
     foreach ($post_ids as $id) {
@@ -63,6 +63,8 @@ class Service {
       'post_status' => 'publish',
       'fields' => 'ids',
       'post__in' => $ids,
+      'orderby' => 'menu_order',
+      'order' => 'ASC',
     ]);
 
     return $query->posts ?? [];
@@ -129,14 +131,31 @@ class Service {
 
   public function upholstery_services() {
     return array_map(function ($id) {
-      return new UphosteryService($id);
-    }, self::find_published(UpholsteryPostType::ID, $this->products));
+      return new UpholsteryService($id);
+    }, self::find_published(UpholsteryPostType::ID, $this->upholstery_services));
+  }
+
+  public function gallery_copy() {
+    return $this->gallery_copy;
+  }
+
+  public function gallery($options = []) {
+    $default_options = ['limit' => 16];
+    $options = $options + $default_options;
+
+    return array_slice(array_map(function ($id) {
+      return [
+        'thumbnail' => wp_get_attachment_image_url($id, 'large'),
+        'full' => wp_get_attachment_image_url($id, 'full'),
+      ];
+    }, $this->gallery), 0, $options['limit']);
   }
 
   public function cta($size = 'large') {
     $cta = $this->cta;
 
     $cta['image'] = wp_get_attachment_image_url($cta['image'], $size);
+    $cta['form'] = $this->build_form(['id' => $cta['form_id']]);
 
     return $cta;
   }
@@ -145,6 +164,10 @@ class Service {
     $default = 'Unnamed Canvas Service';
 
     $this->name = (get_field('bc_canvas_info', $this->id)['name'] ?: $default);
+  }
+
+  private function set_summary() {
+    $this->summary = get_field('bc_canvas_info', $this->id)['summary'];
   }
 
   private function set_card_image() {
@@ -168,7 +191,7 @@ class Service {
   }
 
   private function set_upholstery_services() {
-    $services = (array) get_field('ss_relation_canvas_upholstery', $this->id);
+    $services = (array) get_field('relation_canvas_upholstery', $this->id);
 
     sort($services);
 
@@ -189,5 +212,22 @@ class Service {
 
   private function set_cta() {
     $this->cta = get_field('bc_canvas_cta', $this->id);
+  }
+
+  private function build_form($form_args) {
+    $defaults = [
+      'id' => '',
+      'show_title' => true,
+      'show_description' => true,
+      'show_inactive' => false,
+      'field_values' => false,
+      'ajax' => true,
+      'tabindex' => null,
+      'echo' => false,
+    ];
+
+    $args = $form_args + $defaults;
+
+    return gravity_form(...array_values($args));
   }
 }

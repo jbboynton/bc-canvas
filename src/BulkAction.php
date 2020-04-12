@@ -5,7 +5,7 @@ namespace BC\Canvas;
 class BulkAction {
   public const ACTION_ID = 'tag_by_canvas_service';
   public const ACTION_NAME = 'Tag by canvas service';
-  public const ATTACHMENT_FIELD_KEY = 'attachment_canvas_service_photos';
+  public const ATTACHMENT_FIELD_KEY = 'attachment_canvas_photos';
   public const COLUMN_ID = 'canvas_services';
   public const COLUMN_LABEL = 'Canvas Services';
   public const QUERY_ARG = 'tagged-by-canvas-service';

@@ -50,7 +50,7 @@ class CanvasPostType {
 
   private function set_labels() {
     $this->cpt->labels([
-      'all_items' => 'View All',
+      'search_items' => self::PLURAL_NAME,
       'archives' => self::PLURAL_NAME,
       'menu_name' => self::PLURAL_NAME,
       'not_found' => 'No canvas services found',

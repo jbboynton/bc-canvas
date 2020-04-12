@@ -14,9 +14,16 @@
   "support": {
     "issues": "https://github.com/jbboynton/bc-canvas/issues"
   },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/jbboynton/bc-upholstery"
+    }
+  ],
   "require": {
     "php": "^7.4",
     "composer/installers": "^1.8.0",
+    "jbboynton/bc-upholstery": "dev-master",
     "jjgrainger/posttypes": "^2.0"
   },
   "autoload": {
