@@ -1,6 +1,6 @@
 {
   "name": "jbboynton/bc-canvas",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "type": "wordpress-muplugin",
   "description": "WordPress CPT for BC Marine Canvas' canvas services.",
   "homepage": "https://github.com/jbboynton/bc-canvas",
