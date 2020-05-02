@@ -1,6 +1,6 @@
 # BC Canvas
 
-WordPress CPT for BC Custom Canvas' canvas services.
+WordPress CPT for BC Marine Canvas' canvas services.
 
 ## Environment Setup
 

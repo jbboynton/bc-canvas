@@ -2,8 +2,8 @@
 
 /**
  * Plugin Name: BC Canvas
- * Description: WordPress CPT for BC Custom Canvas' canvas service.
- * Version: 0.1.1
+ * Description: WordPress CPT for BC Marine Canvas' canvas service.
+ * Version: 0.1.2
  * Author: James Boynton
  */
 
