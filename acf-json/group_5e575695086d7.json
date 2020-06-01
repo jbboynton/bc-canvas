@@ -262,9 +262,9 @@
     "location": [
         [
             {
-                "param": "options_page",
+                "param": "page",
                 "operator": "==",
-                "value": "acf-options-canvas-page"
+                "value": "645"
             }
         ]
     ],
@@ -274,10 +274,12 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": [
+        "slug",
+        "author",
         "page_attributes",
         "featured_image"
     ],
     "active": 1,
     "description": "",
-    "modified": 1584248750
+    "modified": 1590863487
 }

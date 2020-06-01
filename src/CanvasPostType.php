@@ -6,6 +6,7 @@ use PostTypes\PostType;
 
 class CanvasPostType {
   public const ID = 'canvas_service';
+  public const PAGE_NAME = 'Canvas Page';
   public const PLURAL_NAME = 'Canvas';
   public const SINGULAR_NAME = 'Canvas Service';
   public const SLUG = 'canvas';
